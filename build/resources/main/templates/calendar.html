@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring-Thymeleaf カレンダー</title>
+</head>
+<body>
+<h1 th:text="${selectedYearAndMonth}"></h1>
+
+<div class="select-container">
+    <i class="fas fa-angle-left prev"></i>
+    <select id="yearSelect">
+        <option th:each="years:${years}" th:value="${years}" th:text="${years}"
+                th:selected="${years == selectedYear}"></option>
+    </select>
+    <select id="monthSelect">
+        <option th:each="months:${months}" th:value="${months}" th:text="${months}"
+                th:selected="${months == selectedMonth}"></option>
+    </select>
+    <i class="fas fa-angle-right next"></i>
+</div>
+<div class="calendar">
+    <div class="day"
+         th:each="day:${days}"
+         th:attr="data-year=${day.year},
+         data-month=${day.month},
+         data-date=${day.date}"
+         th:classappend="|${!(day.isBlank)
+         ? (day.dayOfWeek.getValue() == 6 ? 'saturday' : (day.dayOfWeek.getValue() == 7 ? 'sunday' : '')) : 'empty-day'}
+             ${day.holiday != null ? ' holiday' : ''}|">
+
+        <p>
+            <span th:text="${day.date}"></span>
+
+            <span class="todo-count"
+                  th:if="${day.todoList != null and not #lists.isEmpty(day.todoList)}"
+                  th:text="'('+${day.todoList.size()}+'件)'"></span>
+        </p>
+
+        <p th:if="${day.holiday}" th:text="${day.holiday}" class="holiday"></p>
+
+        <ul>
+            <li th:each="todo,stat:${day.todoList}" th:if="${stat.index < 3}"
+                th:classappend="|${todo.isShared ? 'shared-todo' : ''}
+                ${todo.isShareToOtherUsers ? 'share-to-other-user' : ''}|">
+                <span th:text="${todo.todo}"></span>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+<script th:src="@{/javascript/script.js}"></script>
+</body>
+</html>

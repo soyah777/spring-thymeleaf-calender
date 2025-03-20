@@ -1,0 +1,219 @@
+/* ヘッダー */
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* ToDoフォーム */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* ToDoリストのアイテム */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+span {
+    font-size: 1rem;
+    color: #333;
+}
+
+span.completed_todo {
+    text-decoration: line-through;
+    color: #7f8c8d;
+}
+
+form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e74c3c;
+    font-size: 1.2rem;
+}
+
+form button:hover {
+    color: #c0392b;
+}
+
+/* チェックボックス */
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+/* 共有フォーム */
+select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    background-color: #2ecc71;
+}
+
+input[type="submit"]:hover {
+    background-color: #27ae60;
+}
+
+/* 共有されたTodo */
+h2 {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f1f1f1;
+    font-weight: normal;
+    color: #2c3e50;
+}
+
+table td {
+    color: #7f8c8d;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"], input[type="submit"], select {
+        width: 100%;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    button, input[type="checkbox"] {
+        margin-top: 10px;
+    }
+}
+
+
+/* 共有取り消しフォームのスタイルリセット */
+.cancel-share-form {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+}
+
+/* 共有取り消しボタンのデザイン */
+.cancel-share-btn {
+    background-color: #2ecc71; /* 鮮やかなレッド */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ホバー時のエフェクト */
+.cancel-share-btn:hover {
+    color: white;
+    background-color: #27ae60; /* ちょっと暗めのレッド */
+    transform: scale(1.05);
+}
+
+/* アイコンのサイズ調整 */
+.cancel-share-btn i {
+    font-size: 1rem;
+}
+
+
+ /*カレンダーに戻るボタン */
+.back-to-calendar-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #FFA07A;
+    color: white;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.back-to-calendar-btn:hover {
+    background-color: #FFA07A;
+}
+
+/* アイコン風の矢印 */
+/*.back-to-calendar-btn::before {*/
+/*    content: "⇦";*/
+/*    font-size: 1.2rem;*/
+/*}*/
+
+
