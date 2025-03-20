@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # 3. Spring BootのJARファイルを「app.jar」としてコンテナにコピー
-COPY build/libs/calendar02-0.0.1-SNAPSHOT.jar
+COPY build/libs/calendar02-0.0.1-SNAPSHOT.jar /app.jar
 
 # 4. アプリが使うポート8080を開く
 EXPOSE 8080
