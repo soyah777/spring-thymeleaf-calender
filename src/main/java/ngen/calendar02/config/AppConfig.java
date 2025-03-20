@@ -17,13 +17,13 @@ public class AppConfig {
     @Bean
     public CommandLineRunner dataLoader(UserMapper userMapper, PasswordEncoder passwordEncoder) {
         return args -> {
-            String username = "chiikawa";
+            String username = "misaki";
 
             if(userMapper.findPassword(username) == null) {
                 ngen.calendar02.entity.User user = new ngen.calendar02.entity.User();
                 user.setUsername(username);
-                user.setName("ちいかわ");
-                user.setPassword(passwordEncoder.encode("passpass"));
+                user.setName("みさちゃん");
+                user.setPassword(passwordEncoder.encode("misamisa1997"));
                 userMapper.insertUser(user);
             }else {
                 System.out.println(username+"はすでに登録されています");
