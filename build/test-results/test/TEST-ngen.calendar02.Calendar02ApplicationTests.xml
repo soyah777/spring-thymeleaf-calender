@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ngen.calendar02.Calendar02ApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-03-20T08:58:31" hostname="N-2024-PC-A22.local" time="0.369">
+  <properties/>
+  <testcase name="contextLoads()" classname="ngen.calendar02.Calendar02ApplicationTests" time="0.369"/>
+  <system-out><![CDATA[17:58:28.698 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ngen.calendar02.Calendar02ApplicationTests]: Calendar02ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:58:28.733 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ngen.calendar02.Calendar02Application for test class ngen.calendar02.Calendar02ApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.2)
+
+2025-03-20T17:58:28.858+09:00  INFO 81523 --- [calendar02] [    Test worker] n.calendar02.Calendar02ApplicationTests  : Starting Calendar02ApplicationTests using Java 23.0.1 with PID 81523 (started by user in /Users/user/CLONE/spring-thymeleaf-calender)
+2025-03-20T17:58:28.858+09:00  INFO 81523 --- [calendar02] [    Test worker] n.calendar02.Calendar02ApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2025-03-20T17:58:29.027+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.m.s.b.a.MybatisAutoConfiguration       : Searching for mappers annotated with @Mapper
+2025-03-20T17:58:29.027+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.m.s.b.a.MybatisAutoConfiguration       : Using auto-configuration base package 'ngen.calendar02'
+2025-03-20T17:58:29.063+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.m.s.mapper.ClassPathMapperScanner      : Identified candidate component class: file [/Users/user/CLONE/spring-thymeleaf-calender/build/classes/java/main/ngen/calendar02/repository/UserMapper.class]
+2025-03-20T17:58:29.063+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.m.s.mapper.ClassPathMapperScanner      : Creating MapperFactoryBean with name 'userMapper' and 'ngen.calendar02.repository.UserMapper' mapperInterface
+2025-03-20T17:58:29.197+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.mybatis.spring.SqlSessionFactoryBean   : Parsed mapper file: 'file [/Users/user/CLONE/spring-thymeleaf-calender/build/resources/main/mapper/UserMapper.xml]'
+2025-03-20T17:58:29.280+09:00  INFO 81523 --- [calendar02] [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name loginUserService
+2025-03-20T17:58:29.393+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.m.s.b.a.MybatisAutoConfiguration       : Not found configuration for registering mapper bean using @MapperScan, MapperFactoryBean and MapperScannerConfigurer.
+2025-03-20T17:58:29.459+09:00 ERROR 81523 --- [calendar02] [    Test worker] i.n.r.d.DnsServerAddressStreamProviders  : Unable to load io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'. Use DEBUG level to see the full stack: java.lang.UnsatisfiedLinkError: failed to load the required native library
+2025-03-20T17:58:29.472+09:00  INFO 81523 --- [calendar02] [    Test worker] n.calendar02.Calendar02ApplicationTests  : Started Calendar02ApplicationTests in 0.695 seconds (process running for 1.057)
+2025-03-20T17:58:29.475+09:00 DEBUG 81523 --- [calendar02] [    Test worker] org.mybatis.spring.SqlSessionUtils       : Creating a new SqlSession
+2025-03-20T17:58:29.476+09:00 DEBUG 81523 --- [calendar02] [    Test worker] org.mybatis.spring.SqlSessionUtils       : SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fdc2db6] was not registered for synchronization because synchronization is not active
+2025-03-20T17:58:29.478+09:00  INFO 81523 --- [calendar02] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-20T17:58:31.257+09:00  INFO 81523 --- [calendar02] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3835b281
+2025-03-20T17:58:31.259+09:00  INFO 81523 --- [calendar02] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-20T17:58:31.264+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.m.s.t.SpringManagedTransaction         : JDBC Connection [HikariProxyConnection@408583632 wrapping org.postgresql.jdbc.PgConnection@3835b281] will not be managed by Spring
+2025-03-20T17:58:31.366+09:00 DEBUG 81523 --- [calendar02] [    Test worker] org.mybatis.spring.SqlSessionUtils       : Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6fdc2db6]
+2025-03-20T17:58:31.439+09:00 DEBUG 81523 --- [calendar02] [    Test worker] org.mybatis.spring.SqlSessionUtils       : Creating a new SqlSession
+2025-03-20T17:58:31.439+09:00 DEBUG 81523 --- [calendar02] [    Test worker] org.mybatis.spring.SqlSessionUtils       : SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20afd96f] was not registered for synchronization because synchronization is not active
+2025-03-20T17:58:31.439+09:00 DEBUG 81523 --- [calendar02] [    Test worker] o.m.s.t.SpringManagedTransaction         : JDBC Connection [HikariProxyConnection@1740813661 wrapping org.postgresql.jdbc.PgConnection@3835b281] will not be managed by Spring
+2025-03-20T17:58:31.553+09:00 DEBUG 81523 --- [calendar02] [    Test worker] org.mybatis.spring.SqlSessionUtils       : Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20afd96f]
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/user/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.15.11/a38b16385e867f59a641330f0362ebe742788ed8/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>
