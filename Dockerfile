@@ -11,4 +11,4 @@ COPY build/libs/calendar02-0.0.1-SNAPSHOT.jar /app.jar
 EXPOSE 8080
 
 # 5. Spring Bootアプリを起動する
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "/app.jar"]
