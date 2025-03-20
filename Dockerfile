@@ -1,5 +1,5 @@
-# 1. OpenJDK 17の軽量版（slim）を使う
-FROM openjdk:17-jdk-slim
+# 1. OpenJDK 23の軽量版（slim）を使う
+FROM openjdk:23-jdk-slim
 
 # 2. コンテナの中に「/app」という作業ディレクトリを作る
 WORKDIR /app
