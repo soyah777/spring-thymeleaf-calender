@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/detail-style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title th:inline="text">[[${date}]]-ToDo詳細&登録</title>
+</head>
+<body>
+
+<div>
+  <h1><span th:text="${date}"></span>【やることリスト】</h1>
+</div>
+
+<!--todo追加フォーム-->
+<form th:action="@{/todo/add}" method="POST" th:object="${todoForm}">
+  <input type="hidden" name="date" th:value="${date}">
+  <input type="text" th:field="*{todo}" placeholder="Todoを追加"><br><br>
+  <input type="submit" value="追加！">
+</form>
+
+<ul>
+  <li th:each="todo:${todos}">
+    <span th:text="${todo.todo}" th:classappend="${todo.completedAt !=null}?'completed_todo':''"></span>
+    <form th:action="@{/todo/delete}" method="POST" style="display: inline;">
+      <input type="hidden" name="date" th:value="${todo.todoDate}">
+      <input type="hidden" name="id" th:value="${todo.id}">
+      <button type="submit" style="border:none; cursor:pointer;">
+        <i class="fas fa-trash-alt"></i> <!-- FontAwesomeゴミ箱アイコン -->
+      </button>
+    </form>
+
+    <form th:action="@{/todo/complete}" method="POST">
+      <input type="hidden" name="todoId" th:value="${todo.id}">
+      <input type="hidden" name="date" th:value="${date}">
+      <input type="checkbox" name="completed" th:checked="${todo.completedAt} != null"
+             onchange="this.form.submit()">
+      <span th:if="${todo.completedAt == null}">完了したらチェック！</span>
+      <span th:if="${todo.completedAt != null}" th:text="'完了日時：'
+      + ${#temporals.format(todo.completedAt,'yyyy-MM-dd HH:mm')}"></span>
+    </form>
+
+    <form th:action="@{/todo/share}" method="POST">
+      <input type="hidden" name="todoId" th:value="${todo.id}">
+      <input type="hidden" name="date" th:value="${date}">
+
+      <select name="acceptUserId">
+        <option value="">Todo共有相手を選択</option>
+        <option th:each="user:${allUsers}"
+                th:if="${user.id != currentUserId}"
+                th:value="${user.id}" th:text="${user.name==null ? user.username:user.name}"></option>
+      </select>
+
+      <input type="submit" value="共有">
+    </form>
+  </li>
+</ul>
+
+<th:block th:if="${not #lists.isEmpty(sharedTodos)}">
+<h2>共有されたTodo</h2>
+<table>
+  <tr>
+    <th>ユーザー</th>
+    <th>Todo</th>
+  </tr>
+  <th:block th:each="sharedTodo : ${sharedTodos}">
+    <tr>
+      <td th:text="${sharedTodo.shareCreateUser}"></td>
+      <td th:text="${sharedTodo.todo}"></td>
+    </tr>
+  </th:block>
+</table>
+</th:block>
+
+<th:block th:if="${not #lists.isEmpty(myShareTodos)}">
+<h2>共有済みのTodo</h2>
+<table>
+  <tr>
+    <th>共有先の相手</th>
+    <th>Todo</th>
+    <th></th>
+  </tr>
+  <th:block th:each="myShareTodo : ${myShareTodos}">
+    <tr>
+      <td th:text="${myShareTodo.acceptUsername}"></td>
+      <td th:text="${myShareTodo.todo}"></td>
+      <td>
+        <form th:action="@{/share/cancellation}" method="POST" class="cancel-share-form">
+          <input type="hidden" name="todoDate" th:value="${myShareTodo.todoDate}">
+          <input type="hidden" name="todoId" th:value="${myShareTodo.id}">
+          <button type="submit" class="cancel-share-btn">
+            <i class="fas fa-ban"></i> 共有取り消し
+          </button>
+        </form>
+      </td>
+    </tr>
+  </th:block>
+</table>
+</th:block>
+
+<a th:href="@{/calendar(year=${year},month=${month})}" class="back-to-calendar-btn">⇦ カレンダーに戻る</a>
+
+</body>
+</html>

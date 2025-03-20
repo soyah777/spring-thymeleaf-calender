@@ -1,0 +1,228 @@
+/* 全体のリセット */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 200px);
+    grid-template-rows: repeat(6, 200px);
+
+    width: max-content;
+    height: max-content;
+    margin: 20px auto;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.saturday p{
+    color: blue;
+}
+
+.sunday p{
+    color: red;
+}
+
+.holiday p{
+    color: red;
+}
+
+.empty-day {
+    color: #d3d3d3;
+}
+
+.empty-day .todo-count{
+    color: #d3d3d3;
+}
+
+h1 {
+    margin: 20px 0;
+    color: #444;
+    text-align: center;
+}
+
+/* セレクトボックス */
+.select-container {
+    text-align: center; /* 子要素を中央寄せ */
+    margin: 20px 0; /* 上下に余白 */
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.day {
+    padding: 15px;
+    border: 1px solid black;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.day:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.day p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.day ul{
+    padding-left: 0;
+}
+
+li:not(.shared-todo):not(.share-to-other-user){
+    list-style-type: none;
+    background-color: #f5f5f5; /* 落ち着いたグレー */
+    border-left: 5px solid #9e9e9e; /* 濃いグレー */
+    padding: 5px;
+    margin: 3px 0;
+    border-radius: 4px;
+    font-style: normal;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.shared-todo{
+    /*color: pink;*/
+    /*font-weight: bold;*/
+    list-style-type: none;
+    background-color: #e0f7fa; /* Light cyan for a shared feel */
+    border-left: 5px solid #00796b; /* A deep teal left border */
+    padding: 5px;
+    margin: 3px 0;
+    border-radius: 4px;
+    font-style: italic;
+    font-weight: bold;
+    color: #00796b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/*.shared-todo::before {*/
+/*    content: "\f024"; !* FontAwesome: fa-flag\ *!*/
+/*    font-family: "Font Awesome 5 Free";*/
+/*    font-weight: 900;*/
+/*    margin-right: 8px;*/
+/*}*/
+
+.share-to-other-user {
+    list-style-type: none;
+    background-color: #fff3e0; /* Light peach color to indicate it's shared out */
+    border-left: 5px solid #ff5722; /* A bright orange left border */
+    padding: 5px;
+    margin: 3px 0;
+    border-radius: 4px;
+    font-style: italic;
+    font-weight: bold;
+    color: #ff5722;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/*.share-to-other-user::before {*/
+/*    content: "\f135"; !* FontAwesome: fa-rocket *!*/
+/*    font-family: "Font Awesome 5 Free";*/
+/*    font-weight: 900;*/
+/*    color: #ff5722; !* 明るいオレンジ *!*/
+/*    margin-right: 8px;*/
+/*}*/
+
+.completed_todo{
+    text-decoration: line-through;
+    color: gray;
+}
+
+.todo-count{
+    margin-left: 5px;  /* 日付との間にスペースを追加 */
+    font-size: 0.8em;  /* 文字サイズを少し小さくして調整（任意） */
+    color: #666;  /* 文字色をグレーにして視認性を向上 */
+}
+
+
+
+.prev, .next {
+    position: absolute;
+    font-size: 2rem;
+    padding: 10px 15px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 40px;
+    height: 40px;
+}
+
+.prev {
+    left: 90px; /* 左矢印の位置 */
+}
+
+.next {
+    right: 90px; /* 右矢印の位置 */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(200, 200, 200, 0.8);
+}
+
+/*.prev:active, .next:active {*/
+/*    background-color: rgba(180, 180, 180, 0.9);*/
+/*    transform: translateY(-50%) scale(0.9);*/
+/*}*/
+
+
+
+/*.arrow-button {*/
+/*    position: absolute;*/
+/*    top: 70%; !* カレンダーの中央に配置 *!*/
+/*    !*transform: translateY(-50%); !* Y軸方向に中央配置の調整 *!*!*/
+/*    font-size: 2rem;*/
+/*    padding: 10px 15px;*/
+/*    border: none;*/
+/*    background-color: rgba(255, 255, 255, 0.8);*/
+/*    border-radius: 50%;*/
+/*    cursor: pointer;*/
+/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);*/
+/*    transition: background-color 0.3s, transform 0.2s;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    user-select: none;*/
+/*}*/
+
+/*#prevMonth {*/
+/*    left: 10px; !* カレンダーの左外側に配置 *!*/
+/*}*/
+
+/*#nextMonth {*/
+/*    right: 10px; !* カレンダーの右外側に配置 *!*/
+/*}*/
+
+
+
+/*!* ToDoの件数 *!*/
+/*span {*/
+/*    display: inline-block;*/
+/*    background: #ff9800;*/
+/*    color: white;*/
+/*    padding: 3px 8px;*/
+/*    border-radius: 12px;*/
+/*    font-size: 12px;*/
+/*    margin-top: 5px;*/
+/*}*/
